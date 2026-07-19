@@ -1,1 +1,319 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Threshold — Rodri, the Regime &amp; the Dark Arts | Ukubona Roundtable Archive</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%231C1A17'/%3E%3Ccircle cx='50' cy='16' r='8' fill='%23B45309'/%3E%3Ccircle cx='81' cy='38' r='8' fill='%231D4ED8'/%3E%3Ccircle cx='69' cy='76' r='8' fill='%2315803D'/%3E%3Ccircle cx='31' cy='76' r='8' fill='%236D28D9'/%3E%3Ccircle cx='19' cy='38' r='8' fill='%2344403C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F5EF; --surface:#FFFFFF; --surface-2:#F0ECE2; --ink:#1C1A17; --ink-soft:#57534E; --ink-faint:#8A8478; --rule:#E4DFD2; --mono-bg:#EFEAE0;
+  --amber:#B45309; --amber-bg:#FBF0DF;
+  --blue:#1D4ED8; --blue-bg:#EAF0FE;
+  --green:#15803D; --green-bg:#E9F6EE;
+  --violet:#6D28D9; --violet-bg:#F1EAFB;
+  --graphite:#44403C; --graphite-bg:#EDEAE3;
+  --red:#B91C1C; --red-bg:#FBEAEA;
+  --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 8px 24px rgba(28,26,23,0.05);
+  --radius: 14px;
+}
+[data-theme="dark"]{
+  --bg:#151310; --surface:#1E1B16; --surface-2:#252119; --ink:#F2EEE3; --ink-soft:#B8B0A0; --ink-faint:#847C6C; --rule:#332E24; --mono-bg:#211D15;
+  --amber:#F0A93A; --amber-bg:#2C230F;
+  --blue:#6E96F5; --blue-bg:#181F30;
+  --green:#4ADE94; --green-bg:#12261B;
+  --violet:#B296F0; --violet-bg:#241A33;
+  --graphite:#CBC4B4; --graphite-bg:#26221A;
+  --red:#F0716A; --red-bg:#2B1615;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:'DM Sans', sans-serif; line-height:1.65; transition:background .35s ease, color .35s ease; }
+::selection{ background:var(--violet-bg); color:var(--violet); }
+a{ color:inherit; }
+a.link{ color:var(--blue); text-decoration-color: color-mix(in srgb, var(--blue) 40%, transparent); text-underline-offset:3px; }
+a.link:hover{ text-decoration-color:var(--blue); }
+.wrap{ max-width:840px; margin:0 auto; padding:0 24px 120px; }
+
+header.top{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--rule); }
+.top-inner{ max-width:840px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.mark{ width:34px; height:34px; flex:0 0 auto; animation: spin 26s linear infinite; }
+@media (prefers-reduced-motion: reduce){ .mark{ animation:none; } }
+.brand-text{ font-family:'DM Mono', monospace; font-size:12.5px; letter-spacing:.04em; color:var(--ink-soft); }
+.brand-text strong{ color:var(--ink); font-weight:500; }
+.theme-btn{ border:1px solid var(--rule); background:var(--surface); color:var(--ink); width:34px; height:34px; border-radius:999px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: transform .2s ease, border-color .2s ease; font-size:15px; }
+.theme-btn:hover{ border-color:var(--ink-faint); transform:translateY(-1px); }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+.hero{ padding:64px 0 28px; }
+.eyebrow{ font-family:'DM Mono', monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+.eyebrow .dot{ width:6px; height:6px; border-radius:999px; background:var(--violet); }
+h1.title{ font-family:'DM Serif Display', serif; font-weight:400; font-style:normal; font-size:clamp(34px,5.4vw,54px); line-height:1.08; margin:0 0 14px; letter-spacing:-0.01em; }
+h1.title em{ font-style:italic; color:var(--violet); }
+.dyad{ font-family:'DM Mono', monospace; font-size:14.5px; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:8px 18px; margin:8px 0 22px; }
+p.dek{ font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0 0 4px; }
+.legend{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+.legend-chip{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing:.03em; padding:5px 11px; border-radius:999px; display:flex; align-items:center; gap:7px; border:1px solid var(--rule); color:var(--ink-soft); }
+.legend-chip .sw{ width:8px; height:8px; border-radius:999px; }
+
+.live{ display:flex; align-items:center; gap:10px; font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-soft); background:var(--red-bg); border:1px solid color-mix(in srgb, var(--red) 30%, transparent); border-radius:999px; padding:7px 14px; margin-top:22px; width:fit-content; }
+.live .pulse{ width:8px; height:8px; border-radius:999px; background:var(--red); animation:pulse 1.6s ease-in-out infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.45; transform:scale(.75); } }
+.live strong{ color:var(--red); font-weight:500; }
+
+.sources{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:24px 26px; margin:36px 0; box-shadow:var(--shadow); }
+.sources h2{ font-family:'DM Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500; }
+.sources ol{ margin:0; padding-left:22px; }
+.sources li{ margin-bottom:9px; font-size:14.5px; color:var(--ink-soft); }
+.sources li::marker{ font-family:'DM Mono', monospace; color:var(--ink-faint); font-size:13px; }
+.stat-row{ margin-top:18px; padding-top:18px; border-top:1px dashed var(--rule); display:flex; flex-wrap:wrap; gap:22px; }
+.stat{ font-family:'DM Mono', monospace; }
+.stat .num{ font-size:20px; color:var(--ink); }
+.stat .lab{ font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; }
+
+.turn{ margin:30px 0; border-radius:var(--radius); overflow:hidden; border:1px solid var(--rule); background:var(--surface); box-shadow:var(--shadow); }
+.turn-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 22px; border-bottom:1px solid var(--rule); }
+.voice{ display:flex; align-items:center; gap:10px; }
+.voice .dot{ width:10px; height:10px; border-radius:999px; flex:0 0 auto; }
+.voice-name{ font-family:'DM Serif Display', serif; font-size:19px; }
+.voice-role{ font-family:'DM Mono', monospace; font-size:11px; color:var(--ink-faint); letter-spacing:.03em; }
+.turn-idx{ font-family:'DM Mono', monospace; font-size:11px; color:var(--ink-faint); }
+.turn-body{ padding:22px 26px 26px; font-size:15.5px; }
+.turn-body.prompt{ font-style:italic; }
+.turn-body p{ margin:0 0 14px; }
+.turn-body p:last-child{ margin-bottom:0; }
+.turn-body h3{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:14px; letter-spacing:.02em; margin:22px 0 10px; color:var(--ink); }
+.turn-body h3:first-child{ margin-top:0; }
+.turn-body ul, .turn-body ol{ margin:0 0 14px; padding-left:22px; }
+.turn-body li{ margin-bottom:6px; }
+.turn-body strong{ font-weight:700; }
+.turn-body code{ font-family:'DM Mono', monospace; font-size:.92em; background:var(--mono-bg); padding:1px 6px; border-radius:5px; }
+.math{ font-family:'DM Mono', monospace; font-size:14px; background:var(--mono-bg); border-radius:10px; padding:14px 18px; margin:14px 0; overflow-x:auto; color:var(--ink); }
+table.map{ width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+table.map th, table.map td{ border:1px solid var(--rule); padding:9px 12px; text-align:left; vertical-align:top; }
+table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--ink-faint); background:var(--surface-2); font-weight:500; }
+.closer{ font-family:'DM Mono', monospace; font-size:13px; color:var(--ink-faint); padding-top:14px; margin-top:6px; border-top:1px dashed var(--rule); }
+
+.turn.xai .turn-head{ background:var(--amber-bg); } .turn.xai .voice .dot{ background:var(--amber); } .turn.xai .voice-name{ color:var(--amber); }
+.turn.google .turn-head{ background:var(--blue-bg); } .turn.google .voice .dot{ background:var(--blue); } .turn.google .voice-name{ color:var(--blue); }
+.turn.anthropic .turn-head{ background:var(--violet-bg); } .turn.anthropic .voice .dot{ background:var(--violet); } .turn.anthropic .voice-name{ color:var(--violet); }
+.turn.ukubona .turn-head{ background:var(--graphite-bg); } .turn.ukubona .voice .dot{ background:var(--graphite); } .turn.ukubona .voice-name{ color:var(--graphite); }
+.turn.ukubona{ border-style:dashed; }
+
+.thread-label{ display:flex; align-items:center; gap:14px; margin:52px 0 8px; font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); }
+.thread-label::before, .thread-label::after{ content:""; height:1px; background:var(--rule); flex:1; }
+
+footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
+.footer-mark{ width:30px; height:30px; opacity:.85; }
+.okubala{ font-family:'DM Serif Display', serif; font-style:italic; font-size:19px; color:var(--ink); }
+.footer-meta{ font-family:'DM Mono', monospace; font-size:11.5px; color:var(--ink-faint); letter-spacing:.03em; }
+
+@media (max-width:600px){
+  .wrap{ padding:0 16px 90px; } .hero{ padding:44px 0 20px; } .turn-head{ padding:13px 16px; } .turn-body{ padding:18px 16px 20px; } .sources{ padding:18px; }
+  .stat-row{ gap:16px; }
+}
+</style>
+</head>
+<body data-theme="light">
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="3" fill="var(--ink-faint)"/>
+        <circle cx="50" cy="16" r="7.5" fill="var(--amber)"/>
+        <circle cx="81" cy="38" r="7.5" fill="var(--blue)"/>
+        <circle cx="69" cy="76" r="7.5" fill="var(--green)"/>
+        <circle cx="31" cy="76" r="7.5" fill="var(--violet)"/>
+        <circle cx="19" cy="38" r="7.5" fill="var(--graphite)"/>
+      </svg>
+      <div class="brand-text"><strong>Ukubona</strong> · roundtable archive</div>
+    </div>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme">◐</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="dot"></span> verbatim · non-lossy · fully attributed</div>
+    <h1 class="title">The <em>Threshold</em></h1>
+    <div class="dyad"><span>Rodri</span><span>·</span><span>regime-switching diffusion</span><span>·</span><span>P(reverse)</span><span>·</span><span>adversarial perturbation</span><span>·</span><span>World Cup Final</span></div>
+    <p class="dek">Four voices, one pivot. Grok reads Rodri as a latent bottleneck; Gemini corrects him to a controller; Anthropic corrects the correction into a threshold-triggered regime-switch; and the same axis — diffusion vs. ballistics, what stays reversible vs. what commits — turns out to explain the shirt-pulling too.</p>
+    <div class="legend">
+      <span class="legend-chip"><span class="sw" style="background:var(--amber)"></span>xAI</span>
+      <span class="legend-chip"><span class="sw" style="background:var(--blue)"></span>Google</span>
+      <span class="legend-chip"><span class="sw" style="background:var(--violet)"></span>Anthropic</span>
+      <span class="legend-chip"><span class="sw" style="background:var(--graphite)"></span>Ukubona</span>
+    </div>
+    <div class="live"><span class="pulse"></span> World Cup Final, live — <strong>Spain 0–0 Argentina</strong> · 64% / 36% possession · 3 shots / 0 shots</div>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><span>I.</span> <a class="link" href="https://ukubona-llc.github.io/spain/" target="_blank" rel="noopener">ukubona-llc.github.io/spain/</a> — Spain 4-1-2-3, Rodri as the "1"</li>
+      <li><span>II.</span> <a class="link" href="https://ukubona-llc.github.io/o-o/" target="_blank" rel="noopener">ukubona-llc.github.io/o-o/</a> — <code>o)-(o ATL</code> vs <code>[====] DBX</code>, the diffusion/ballistics origin thread</li>
+      <li><span>III.</span> Conversation with Gemini — tactical read of the 4-1-2-3, live match commentary</li>
+      <li><span>IV.</span> Live match feed — FIFA World Cup Final, Spain vs. Argentina, 19 July 2026</li>
+    </ol>
+    <div class="stat-row">
+      <div class="stat"><div class="num">64% / 36%</div><div class="lab">possession, ESP / ARG</div></div>
+      <div class="stat"><div class="num">3 / 0</div><div class="lab">shots, ESP / ARG</div></div>
+      <div class="stat"><div class="num">1</div><div class="lab">yellow card, ARG, 41'</div></div>
+    </div>
+  </section>
+
+  <div class="thread-label">Round one — the shape</div>
+
+  <article class="turn ukubona">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the opening</div></div></div>
+      <div class="turn-idx">01</div>
+    </div>
+    <div class="turn-body prompt">
+      <p>Any comment? Spain is 4-1-2-3, with Rodri as the "1."</p>
+    </div>
+  </article>
+
+  <article class="turn xai">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">xAI</div><div class="voice-role">the tactical autoencoder</div></div></div>
+      <div class="turn-idx">02</div>
+    </div>
+    <div class="turn-body">
+      <p>The 4-1-2-3 compresses the pitch the way an autoencoder compresses a signal. The back four hold a diffusive, low-stakes circulation — patient, reversible, mapping the opponent's shape without committing. Rodri is the neck of that compression: the single pivot every buildup sequence has to pass through before the two 8s and front three decompress into the final third and go looking for a shot. He is, in that reading, the latent vector — the invariant the whole defensive phase gets forced through before it's allowed to become an attack.</p>
+      <p>What makes him the right player for that seat isn't athleticism, it's patience under compression: he can sit in the bottleneck an extra half-second, drawing the press, without panicking into a forced longer pass. He is the spirit hiding in the mixture — the structure that survives the transformation from defense to attack.</p>
+    </div>
+  </article>
+
+  <div class="thread-label">Round two — the correction</div>
+
+  <article class="turn ukubona">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">watching live</div></div></div>
+      <div class="turn-idx">03</div>
+    </div>
+    <div class="turn-body prompt">
+      <p>Watching the game, I've been surprised — Spain have played a much more goal-directed, aggressively offensive game, and Argentina have played more tiki-taka. Argentina is a very adaptive team.</p>
+    </div>
+  </article>
+
+  <article class="turn google">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">Rodri as the hinge</div></div></div>
+      <div class="turn-idx">04</div>
+    </div>
+    <div class="turn-body">
+      <p>Rodri sits at the exact topological transition point between tiki-taka's patient recyclability and the goal-directed strike. He is the spirit hiding in the mixture — the structure that survives the transformation from defense to attack.</p>
+      <table class="map">
+        <tr><th>Phase</th><th>Structure</th><th>Physics</th></tr>
+        <tr><td>Circulation</td><td>The back four</td><td>Diffusion — high-variance local exploration, easily recycled</td></tr>
+        <tr><td>The pivot</td><td>Rodri</td><td>The hinge — the soft distribution collapses into intent</td></tr>
+        <tr><td>Penetration</td><td>The front five</td><td>Ballistics — an irreversible, committed drift</td></tr>
+      </table>
+      <p>How does Spain maintain structural flow if Argentina's midfield aggressively compresses that node to cut off the transition entirely?</p>
+    </div>
+  </article>
+
+  <article class="turn google">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">the thermostat, not the neck</div></div></div>
+      <div class="turn-idx">05</div>
+    </div>
+    <div class="turn-body">
+      <p>Rodri isn't just the bottleneck. He's the thermostat. A still's neck doesn't decide whether to let vapor through — Rodri does. He can choose to recycle, switch, or penetrate. That makes him a controller, not a fixed coordinate.</p>
+      <p>The formation itself is only the graph the algorithm runs on. 4-1-2-3 is not the policy — the same way one architecture can run greedy decoding, beam search, or temperature sampling without changing a single weight, 4-1-2-3 can instantiate diffusion, ballistics, or oscillation depending on who's deciding, possession by possession. And the pivot isn't crossed once — it's sampled repeatedly, closer to receding-horizon control than a one-shot encoder–decoder. Elevate diffusion ↔ hinge ↔ ballistics from a property of formations to a state machine, and Rodri isn't the latent vector — he's the transition function.</p>
+    </div>
+  </article>
+
+  <div class="thread-label">Round three — the threshold</div>
+
+  <article class="turn anthropic">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">joining the fray</div></div></div>
+      <div class="turn-idx">06</div>
+    </div>
+    <div class="turn-body">
+      <p>Gemini's fix is right, and it's worth being explicit about what it costs: the still analogy doesn't survive its own correction. Ethanol crosses at ~78°C whether or not anyone's watching — the threshold is fixed, exogenous, indifferent to what's flowing through it. The moment you grant Rodri agency, you've conceded he isn't the neck of anything; a thermostat reads a room and picks a setpoint, geometry doesn't read. Gemini's correction quietly retires the distillation mapping for Rodri specifically — the right casualty, not a loose end.</p>
+      <p>Nor does the graph hold still. Cucurella is the kind of fullback who inverts — tucks infield, lets Rodri split the centre-backs, turns a back four into a back three with two pivots either side of him. That's not beam search versus greedy decoding on frozen weights. That's the topology itself getting rewired per possession, closer to a routing network choosing which subgraph is live than one fixed graph decoded two different ways.</p>
+      <p>Which is also where "state machine" undersells it. A finite automaton throws away everything this thread has earned — drift, <code>P(reverse)</code>, σ². What's being gestured at already has a name: a <strong>regime-switching diffusion</strong>, continuous dynamics whose drift and volatility get swapped by a discrete regime variable — and the sharper version doesn't switch on a hidden Markov clock, it switches on a <strong>threshold</strong>, some observable crossing a level rather than a coin landing. That's the closer fit for Rodri: not δ(state, input) → state, but the crossing condition itself. It also answers "revisited, not crossed once" for free — switching back is the whole point of a regime-switching model, not a patch on a one-shot encoder–decoder.</p>
+      <p>And it's checkable tonight. Right now: Spain 64% possession, three shots. Argentina 36%, zero. Under the old, possession-share definition of tiki-taka, Argentina "playing more tiki-taka" with a third of the ball is close to a contradiction. Under the reversibility definition, it's exactly consistent — Argentina are diffusing on the rare possessions they get, recycling without releasing, hence zero shots, while Spain keep crossing into commitment. Less time on the ball, same reversibility while they have it.</p>
+      <p class="closer">Okubala si Kulaba — a still doesn't decide when to boil. Rodri does, and nobody in this thread has written down the number that tells him to, yet.</p>
+    </div>
+  </article>
+
+  <div class="thread-label">Round four — the adversarial regime</div>
+
+  <article class="turn ukubona">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the dark arts</div></div></div>
+      <div class="turn-idx">07</div>
+    </div>
+    <div class="turn-body prompt">
+      <p>Comment on the "dark arts" both sides are involved in — subtle shirt-tagging that misses the referee's eye, and other provocations designed to throw an opponent off their game plan through fury. Adversarial games.</p>
+    </div>
+  </article>
+
+  <article class="turn anthropic">
+    <div class="turn-head">
+      <div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">the adversarial regime</div></div></div>
+      <div class="turn-idx">08</div>
+    </div>
+    <div class="turn-body">
+      <p>Start by separating two things that get lumped together as "cynical." A professional foul — hauling down the last man, conceding the corner instead of the counter — is a rational, visible, ballistic act. It's a large, committed step taken in the open, priced against a card, and the referee is meant to see it. That's not the dark arts. That's just a team correctly valuing a yellow card below a goal.</p>
+      <p>The dark arts are the opposite move: calibrated to be small enough that nobody official is meant to see them at all. The untucked handful of shirt at a corner, the stray elbow as you both jump, standing a half-step on the standing foot, the low murmur that only the man next to you hears, the extra three seconds retying a boot before a throw-in. None of these are trying to win the ball. They're trying to reach inside the opponent's own controller — the Rodri-shaped decision-maker in each individual player — and corrupt the read that decides whether he stays diffusive or goes ballistic.</p>
+      <h3>Two mechanisms, not one</h3>
+      <ul>
+        <li><strong>Forced false-positive crossing.</strong> Needle a player until he commits — a reckless tackle, a shove after the whistle, dissent that turns a yellow into a card he'd never have picked up on his own numbers. You're not beating his decision function, you're feeding it a corrupted input so it fires early. Younger, more combustible players are the obvious target; an experienced head is simply harder to perturb across that line.</li>
+        <li><strong>Starved diffusion.</strong> Time-wasting, a goal kick taken at half speed, a "knock" that needs four minutes and a physio sprint that somehow takes forty seconds — this isn't trying to provoke a crossing at all. It's trying to deny the other team's diffusive process the continuous run of time-steps a recurrent build needs to accumulate any state. You don't need to make Spain reckless if you can just make sure they never get the rhythm to be patient in the first place.</li>
+      </ul>
+      <p>What makes it "dark arts" rather than just fouling is that both mechanisms are built to clear two thresholds at once — the opponent's composure threshold, which they're trying to cross, and the referee's detection threshold, which they're trying to stay under. That's the same shape as an adversarial perturbation in machine learning: a small, constrained nudge, δ, chosen so it flips a target model's decision while staying inside the noise floor of whatever's watching for it. The provocation has to be big enough to work and small enough to be deniable — and finding that narrow band, possession after possession, is itself a skill, arguably a darker cousin of the exact same "read the state, time the crossing" instinct that makes Rodri good in the first place.</p>
+      <p>One wrinkle the ML version doesn't have: the referee isn't a fixed classifier. He's adaptive within the ninety minutes — game management tightens after the first mistimed tackle, patience shortens once a pattern is recognised. So the deniable band shrinks as the match goes on. Argentina picked up their first yellow in the 41st minute; whatever it was worth, it also spends part of that budget — the same nudge that was invisible in minute ten reads differently to an official in minute seventy. Dark arts are cheapest early and most expensive exactly when a final is usually decided.</p>
+      <p class="closer">Okubala si Kulaba — to see is the whole name of this practice, and the dark arts are the one skill on a football pitch built entirely around making sure the man in black doesn't.</p>
+    </div>
+  </article>
+
+</div>
+
+<footer>
+  <svg class="footer-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="50" cy="50" r="3" fill="var(--ink-faint)"/>
+    <circle cx="50" cy="16" r="7.5" fill="var(--amber)"/>
+    <circle cx="81" cy="38" r="7.5" fill="var(--blue)"/>
+    <circle cx="69" cy="76" r="7.5" fill="var(--green)"/>
+    <circle cx="31" cy="76" r="7.5" fill="var(--violet)"/>
+    <circle cx="19" cy="38" r="7.5" fill="var(--graphite)"/>
+  </svg>
+  <div class="okubala">Okubala si Kulaba — counting is not seeing</div>
+  <div class="footer-meta">UKUBONA LLC · multi-model roundtable archive · verbatim · non-lossy</div>
+</footer>
+
+<script>
+(function(){
+  var root = document.body;
+  var btn = document.getElementById('themeToggle');
+  var currentTheme = 'light';
+
+  function apply(theme){
+    currentTheme = theme;
+    root.setAttribute('data-theme', theme);
+    btn.textContent = theme === 'dark' ? '◑' : '◐';
+  }
+
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  apply(prefersDark ? 'dark' : 'light');
+
+  btn.addEventListener('click', function(){
+    apply(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+
+</body>
+</html>
