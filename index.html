@@ -17,6 +17,7 @@
   --violet:#6D28D9; --violet-bg:#F1EAFB;
   --graphite:#44403C; --graphite-bg:#EDEAE3;
   --red:#B91C1C; --red-bg:#FBEAEA;
+  --teal:#0E7C86; --teal-bg:#E4F3F3;
   --shadow: 0 1px 2px rgba(28,26,23,0.04), 0 8px 24px rgba(28,26,23,0.05);
   --radius: 14px;
 }
@@ -28,6 +29,7 @@
   --violet:#B296F0; --violet-bg:#241A33;
   --graphite:#CBC4B4; --graphite-bg:#26221A;
   --red:#F0716A; --red-bg:#2B1615;
+  --teal:#5FC7CE; --teal-bg:#122324;
   --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
 }
 *{ box-sizing:border-box; }
@@ -38,7 +40,6 @@ a{ color:inherit; }
 a.link{ color:var(--blue); text-decoration-color: color-mix(in srgb, var(--blue) 40%, transparent); text-underline-offset:3px; }
 a.link:hover{ text-decoration-color:var(--blue); }
 .wrap{ max-width:840px; margin:0 auto; padding:0 24px 120px; }
-
 header.top{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--rule); }
 .top-inner{ max-width:840px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .brand{ display:flex; align-items:center; gap:12px; }
@@ -49,7 +50,6 @@ header.top{ position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); bac
 .theme-btn{ border:1px solid var(--rule); background:var(--surface); color:var(--ink); width:34px; height:34px; border-radius:999px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: transform .2s ease, border-color .2s ease; font-size:15px; }
 .theme-btn:hover{ border-color:var(--ink-faint); transform:translateY(-1px); }
 @keyframes spin{ to{ transform:rotate(360deg); } }
-
 .hero{ padding:64px 0 28px; }
 .eyebrow{ font-family:'DM Mono', monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
 .eyebrow .dot{ width:6px; height:6px; border-radius:999px; background:var(--violet); }
@@ -60,13 +60,10 @@ p.dek{ font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0 0 4px; }
 .legend{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
 .legend-chip{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing:.03em; padding:5px 11px; border-radius:999px; display:flex; align-items:center; gap:7px; border:1px solid var(--rule); color:var(--ink-soft); }
 .legend-chip .sw{ width:8px; height:8px; border-radius:999px; }
-
 .live{ display:flex; align-items:center; gap:10px; font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-soft); background:var(--green-bg); border:1px solid color-mix(in srgb, var(--green) 30%, transparent); border-radius:999px; padding:7px 14px; margin-top:22px; width:fit-content; }
 .live .pulse{ width:8px; height:8px; border-radius:999px; background:var(--green); }
 .live strong{ color:var(--green); font-weight:500; }
-
-/* tabs */
-.tabbar{ display:flex; gap:8px; margin:34px 0 -6px; border-bottom:1px solid var(--rule); }
+.tabbar{ display:flex; gap:8px; margin:34px 0 -6px; border-bottom:1px solid var(--rule); flex-wrap:wrap; }
 .tab-btn{ font-family:'DM Mono', monospace; font-size:12.5px; letter-spacing:.04em; color:var(--ink-faint); background:none; border:none; cursor:pointer; padding:10px 4px 14px; margin-right:18px; position:relative; transition:color .2s ease; }
 .tab-btn:hover{ color:var(--ink-soft); }
 .tab-btn.active{ color:var(--ink); }
@@ -74,7 +71,6 @@ p.dek{ font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0 0 4px; }
 .tab-btn .n{ display:inline-block; opacity:.6; margin-right:6px; }
 .panel{ display:none; }
 .panel.active{ display:block; }
-
 .sources{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:24px 26px; margin:36px 0; box-shadow:var(--shadow); }
 .sources h2{ font-family:'DM Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500; }
 .sources ol{ margin:0; padding-left:22px; }
@@ -84,7 +80,6 @@ p.dek{ font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0 0 4px; }
 .stat{ font-family:'DM Mono', monospace; }
 .stat .num{ font-size:20px; color:var(--ink); }
 .stat .lab{ font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; }
-
 .turn{ margin:30px 0; border-radius:var(--radius); overflow:hidden; border:1px solid var(--rule); background:var(--surface); box-shadow:var(--shadow); }
 .turn-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 22px; border-bottom:1px solid var(--rule); }
 .voice{ display:flex; align-items:center; gap:10px; }
@@ -107,17 +102,14 @@ table.map{ width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; 
 table.map th, table.map td{ border:1px solid var(--rule); padding:9px 12px; text-align:left; vertical-align:top; }
 table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--ink-faint); background:var(--surface-2); font-weight:500; }
 .closer{ font-family:'DM Mono', monospace; font-size:13px; color:var(--ink-faint); padding-top:14px; margin-top:6px; border-top:1px dashed var(--rule); }
-
 .turn.xai .turn-head{ background:var(--amber-bg); } .turn.xai .voice .dot{ background:var(--amber); } .turn.xai .voice-name{ color:var(--amber); }
 .turn.google .turn-head{ background:var(--blue-bg); } .turn.google .voice .dot{ background:var(--blue); } .turn.google .voice-name{ color:var(--blue); }
 .turn.anthropic .turn-head{ background:var(--violet-bg); } .turn.anthropic .voice .dot{ background:var(--violet); } .turn.anthropic .voice-name{ color:var(--violet); }
 .turn.ukubona .turn-head{ background:var(--graphite-bg); } .turn.ukubona .voice .dot{ background:var(--graphite); } .turn.ukubona .voice-name{ color:var(--graphite); }
+.turn.openai .turn-head{ background:var(--teal-bg); } .turn.openai .voice .dot{ background:var(--teal); } .turn.openai .voice-name{ color:var(--teal); }
 .turn.ukubona{ border-style:dashed; }
-
 .thread-label{ display:flex; align-items:center; gap:14px; margin:52px 0 8px; font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); }
 .thread-label::before, .thread-label::after{ content:""; height:1px; background:var(--rule); flex:1; }
-
-/* ground-truth tab */
 .scorebox{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:26px; margin:30px 0; box-shadow:var(--shadow); text-align:center; }
 .scorebox .comp{ font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px; }
 .scoreline{ font-family:'DM Serif Display', serif; font-size:clamp(28px,5vw,40px); display:flex; align-items:center; justify-content:center; gap:18px; }
@@ -126,7 +118,6 @@ table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing
 .scorebox .sub{ font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-faint); margin-top:10px; }
 .keymoments{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px; }
 .km{ font-family:'DM Mono', monospace; font-size:11.5px; color:var(--ink-soft); border:1px solid var(--rule); border-radius:999px; padding:5px 12px; }
-
 .verdict-card{ margin:22px 0; border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
 .verdict-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; border-bottom:1px solid var(--rule); background:var(--surface-2); }
 .verdict-head h3{ margin:0; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; }
@@ -139,7 +130,6 @@ table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing
 .vcol p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
 .vcol.predicted p{ font-style:italic; }
 .verdict-note{ padding:0 20px 20px; font-size:14px; color:var(--ink-soft); border-top:1px dashed var(--rule); margin-top:2px; padding-top:14px; }
-
 .wa-block{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:20px 22px; margin:22px 0; box-shadow:var(--shadow); }
 .wa-block h3{ font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
 .wa-msg{ display:flex; margin-bottom:10px; }
@@ -148,17 +138,20 @@ table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing
 .wa-msg.in .wa-bubble{ background:var(--surface-2); border:1px solid var(--rule); }
 .wa-msg.out .wa-bubble{ background:var(--green-bg); border:1px solid color-mix(in srgb, var(--green) 25%, transparent); }
 .wa-name{ font-family:'DM Mono', monospace; font-size:10.5px; color:var(--green); display:block; margin-bottom:2px; }
-
+.wa-name.alt{ color:var(--blue); }
+.wa-name.alt2{ color:var(--violet); }
+.wa-media{ border-radius:12px; overflow:hidden; border:1px solid var(--rule); margin-top:4px; }
+.wa-media img{ width:100%; display:block; }
+.wa-media .cap{ font-family:'DM Mono', monospace; font-size:11px; color:var(--ink-faint); padding:8px 10px; background:var(--surface-2); }
 .video-embed{ margin:26px 0; }
 .video-frame{ position:relative; width:100%; padding-top:56.25%; border-radius:var(--radius); overflow:hidden; border:1px solid var(--rule); box-shadow:var(--shadow); background:var(--mono-bg); }
 .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 .video-cap{ font-family:'DM Mono', monospace; font-size:12px; color:var(--ink-faint); margin-top:10px; }
-
+.copy-note{ font-family:'DM Mono', monospace; font-size:12px; color:var(--ink-faint); background:var(--surface-2); border:1px dashed var(--rule); border-radius:10px; padding:10px 14px; margin:14px 0; }
 footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
 .footer-mark{ width:30px; height:30px; opacity:.85; }
 .okubala{ font-family:'DM Serif Display', serif; font-style:italic; font-size:19px; color:var(--ink); }
 .footer-meta{ font-family:'DM Mono', monospace; font-size:11.5px; color:var(--ink-faint); letter-spacing:.03em; }
-
 @media (max-width:600px){
   .wrap{ padding:0 16px 90px; } .hero{ padding:44px 0 20px; } .turn-head{ padding:13px 16px; } .turn-body{ padding:18px 16px 20px; } .sources{ padding:18px; }
   .stat-row{ gap:16px; }
@@ -166,7 +159,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
 </style>
 </head>
 <body data-theme="light">
-
 <header class="top">
   <div class="top-inner">
     <div class="brand">
@@ -183,31 +175,30 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme">◐</button>
   </div>
 </header>
-
 <div class="wrap">
-
   <section class="hero">
     <div class="eyebrow"><span class="dot"></span> verbatim · non-lossy · fully attributed</div>
     <h1 class="title">The <em>Threshold</em></h1>
-    <div class="dyad"><span>Rodri</span><span>·</span><span>regime-switching diffusion</span><span>·</span><span>P(reverse)</span><span>·</span><span>adversarial perturbation</span><span>·</span><span>World Cup Final</span></div>
-    <p class="dek">Four voices, one pivot. Grok reads Rodri as a latent bottleneck; Gemini corrects him to a controller; Anthropic corrects the correction into a threshold-triggered regime-switch; and the same axis — diffusion vs. ballistics, what stays reversible vs. what commits — turns out to explain the shirt-pulling too.</p>
+    <div class="dyad"><span>Rodri</span><span>·</span><span>regime-switching diffusion</span><span>·</span><span>P(reverse)</span><span>·</span><span>adversarial perturbation</span><span>·</span><span>identity vs. architecture</span></div>
+    <p class="dek">Four voices, one pivot — then a fifth voice asks whether identity itself can be engineered. Grok reads Rodri as a latent bottleneck; Gemini corrects him to a controller; Anthropic corrects the correction into a threshold-triggered regime-switch; the pitch confirms it; and GPT closes the loop on the one thing none of the physics can compress: forty years of priors.</p>
     <div class="legend">
       <span class="legend-chip"><span class="sw" style="background:var(--amber)"></span>xAI</span>
       <span class="legend-chip"><span class="sw" style="background:var(--blue)"></span>Google</span>
       <span class="legend-chip"><span class="sw" style="background:var(--violet)"></span>Anthropic</span>
+      <span class="legend-chip"><span class="sw" style="background:var(--teal)"></span>OpenAI</span>
       <span class="legend-chip"><span class="sw" style="background:var(--graphite)"></span>Ukubona</span>
     </div>
     <div class="live"><span class="pulse"></span> Full time, after extra time — <strong>Spain 1–0 Argentina</strong> · Torres 106' · Fernández sent off, 90+3'</div>
-
     <div class="tabbar" role="tablist">
       <button class="tab-btn active" id="tab-thread" data-panel="panel-thread" role="tab" aria-selected="true"><span class="n">I.</span>The Roundtable</button>
       <button class="tab-btn" id="tab-groundtruth" data-panel="panel-groundtruth" role="tab" aria-selected="false"><span class="n">II.</span>Full Time — Ground Truth</button>
+      <button class="tab-btn" id="tab-identity" data-panel="panel-identity" role="tab" aria-selected="false"><span class="n">III.</span>Identity vs. Architecture</button>
+      <button class="tab-btn" id="tab-parallel" data-panel="panel-parallel" role="tab" aria-selected="false"><span class="n">IV.</span>Overheard, Extended</button>
     </div>
   </section>
 
-  <!-- ================= PANEL I — ORIGINAL ARCHIVE (unchanged, verbatim) ================= -->
+  <!-- ================= PANEL I ================= -->
   <div class="panel active" id="panel-thread">
-
   <section class="sources">
     <h2>Sources</h2>
     <ol>
@@ -224,22 +215,12 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   </section>
 
   <div class="thread-label">Round one — the shape</div>
-
   <article class="turn ukubona">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the opening</div></div></div>
-      <div class="turn-idx">01</div>
-    </div>
-    <div class="turn-body prompt">
-      <p>Any comment? Spain is 4-1-2-3, with Rodri as the "1."</p>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the opening</div></div></div><div class="turn-idx">01</div></div>
+    <div class="turn-body prompt"><p>Any comment? Spain is 4-1-2-3, with Rodri as the "1."</p></div>
   </article>
-
   <article class="turn xai">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">xAI</div><div class="voice-role">the tactical autoencoder</div></div></div>
-      <div class="turn-idx">02</div>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">xAI</div><div class="voice-role">the tactical autoencoder</div></div></div><div class="turn-idx">02</div></div>
     <div class="turn-body">
       <p>The 4-1-2-3 compresses the pitch the way an autoencoder compresses a signal. The back four hold a diffusive, low-stakes circulation — patient, reversible, mapping the opponent's shape without committing. Rodri is the neck of that compression: the single pivot every buildup sequence has to pass through before the two 8s and front three decompress into the final third and go looking for a shot. He is, in that reading, the latent vector — the invariant the whole defensive phase gets forced through before it's allowed to become an attack.</p>
       <p>What makes him the right player for that seat isn't athleticism, it's patience under compression: he can sit in the bottleneck an extra half-second, drawing the press, without panicking into a forced longer pass. He is the spirit hiding in the mixture — the structure that survives the transformation from defense to attack.</p>
@@ -247,22 +228,12 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   </article>
 
   <div class="thread-label">Round two — the correction</div>
-
   <article class="turn ukubona">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">watching live</div></div></div>
-      <div class="turn-idx">03</div>
-    </div>
-    <div class="turn-body prompt">
-      <p>Watching the game, I've been surprised — Spain have played a much more goal-directed, aggressively offensive game, and Argentina have played more tiki-taka. Argentina is a very adaptive team.</p>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">watching live</div></div></div><div class="turn-idx">03</div></div>
+    <div class="turn-body prompt"><p>Watching the game, I've been surprised — Spain have played a much more goal-directed, aggressively offensive game, and Argentina have played more tiki-taka. Argentina is a very adaptive team.</p></div>
   </article>
-
   <article class="turn google">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">Rodri as the hinge</div></div></div>
-      <div class="turn-idx">04</div>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">Rodri as the hinge</div></div></div><div class="turn-idx">04</div></div>
     <div class="turn-body">
       <p>Rodri sits at the exact topological transition point between tiki-taka's patient recyclability and the goal-directed strike. He is the spirit hiding in the mixture — the structure that survives the transformation from defense to attack.</p>
       <table class="map">
@@ -274,12 +245,8 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
       <p>How does Spain maintain structural flow if Argentina's midfield aggressively compresses that node to cut off the transition entirely?</p>
     </div>
   </article>
-
   <article class="turn google">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">the thermostat, not the neck</div></div></div>
-      <div class="turn-idx">05</div>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">the thermostat, not the neck</div></div></div><div class="turn-idx">05</div></div>
     <div class="turn-body">
       <p>Rodri isn't just the bottleneck. He's the thermostat. A still's neck doesn't decide whether to let vapor through — Rodri does. He can choose to recycle, switch, or penetrate. That makes him a controller, not a fixed coordinate.</p>
       <p>The formation itself is only the graph the algorithm runs on. 4-1-2-3 is not the policy — the same way one architecture can run greedy decoding, beam search, or temperature sampling without changing a single weight, 4-1-2-3 can instantiate diffusion, ballistics, or oscillation depending on who's deciding, possession by possession. And the pivot isn't crossed once — it's sampled repeatedly, closer to receding-horizon control than a one-shot encoder–decoder. Elevate diffusion ↔ hinge ↔ ballistics from a property of formations to a state machine, and Rodri isn't the latent vector — he's the transition function.</p>
@@ -287,12 +254,8 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   </article>
 
   <div class="thread-label">Round three — the threshold</div>
-
   <article class="turn anthropic">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">joining the fray</div></div></div>
-      <div class="turn-idx">06</div>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">joining the fray</div></div></div><div class="turn-idx">06</div></div>
     <div class="turn-body">
       <p>Gemini's fix is right, and it's worth being explicit about what it costs: the still analogy doesn't survive its own correction. Ethanol crosses at ~78°C whether or not anyone's watching — the threshold is fixed, exogenous, indifferent to what's flowing through it. The moment you grant Rodri agency, you've conceded he isn't the neck of anything; a thermostat reads a room and picks a setpoint, geometry doesn't read. Gemini's correction quietly retires the distillation mapping for Rodri specifically — the right casualty, not a loose end.</p>
       <p>Nor does the graph hold still. Cucurella is the kind of fullback who inverts — tucks infield, lets Rodri split the centre-backs, turns a back four into a back three with two pivots either side of him. That's not beam search versus greedy decoding on frozen weights. That's the topology itself getting rewired per possession, closer to a routing network choosing which subgraph is live than one fixed graph decoded two different ways.</p>
@@ -303,22 +266,12 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   </article>
 
   <div class="thread-label">Round four — the adversarial regime</div>
-
   <article class="turn ukubona">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the dark arts</div></div></div>
-      <div class="turn-idx">07</div>
-    </div>
-    <div class="turn-body prompt">
-      <p>Comment on the "dark arts" both sides are involved in — subtle shirt-tagging that misses the referee's eye, and other provocations designed to throw an opponent off their game plan through fury. Adversarial games.</p>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the dark arts</div></div></div><div class="turn-idx">07</div></div>
+    <div class="turn-body prompt"><p>Comment on the "dark arts" both sides are involved in — subtle shirt-tagging that misses the referee's eye, and other provocations designed to throw an opponent off their game plan through fury. Adversarial games.</p></div>
   </article>
-
   <article class="turn anthropic">
-    <div class="turn-head">
-      <div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">the adversarial regime</div></div></div>
-      <div class="turn-idx">08</div>
-    </div>
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">the adversarial regime</div></div></div><div class="turn-idx">08</div></div>
     <div class="turn-body">
       <p>Start by separating two things that get lumped together as "cynical." A professional foul — hauling down the last man, conceding the corner instead of the counter — is a rational, visible, ballistic act. It's a large, committed step taken in the open, priced against a card, and the referee is meant to see it. That's not the dark arts. That's just a team correctly valuing a yellow card below a goal.</p>
       <p>The dark arts are the opposite move: calibrated to be small enough that nobody official is meant to see them at all. The untucked handful of shirt at a corner, the stray elbow as you both jump, standing a half-step on the standing foot, the low murmur that only the man next to you hears, the extra three seconds retying a boot before a throw-in. None of these are trying to win the ball. They're trying to reach inside the opponent's own controller — the Rodri-shaped decision-maker in each individual player — and corrupt the read that decides whether he stays diffusive or goes ballistic.</p>
@@ -332,14 +285,11 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
       <p class="closer">Okubala si Kulaba — to see is the whole name of this practice, and the dark arts are the one skill on a football pitch built entirely around making sure the man in black doesn't.</p>
     </div>
   </article>
-
   </div> <!-- /panel-thread -->
 
-  <!-- ================= PANEL II — GROUND TRUTH ================= -->
+  <!-- ================= PANEL II ================= -->
   <div class="panel" id="panel-groundtruth">
-
   <p class="dek" style="margin-top:32px;">Round three's closer promised a number nobody had written down yet — "nobody in this thread has written down the number that tells him to." Round four bet, in advance, on the shape the dark arts would take. The match is over. Here is what the manuscript predicted, graded against what the pitch actually did, plus the parallel conversation running the whole time on a phone screen a continent away.</p>
-
   <div class="scorebox">
     <div class="comp">FIFA World Cup Final · Full Time (AET) · New York/New Jersey Stadium · 19 July 2026</div>
     <div class="scoreline"><span class="side">Spain</span><span class="num">1</span><span style="color:var(--ink-faint);">–</span><span class="num">0</span><span class="side">Argentina</span></div>
@@ -354,7 +304,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   </div>
 
   <div class="thread-label">Grading the manuscript</div>
-
   <div class="verdict-card">
     <div class="verdict-head"><h3>Round 3 — "Cucurella... turns a back four into a back three with two pivots"</h3><span class="badge confirmed">confirmed, literally</span></div>
     <div class="verdict-body">
@@ -363,7 +312,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     </div>
     <div class="verdict-note">The manuscript named Cucurella as the player who reshapes the graph. The match made him the player at the centre of the one incident built to test whether the "dark arts" definition in Round 4 was actually operational rather than just a nice turn of phrase.</div>
   </div>
-
   <div class="verdict-card">
     <div class="verdict-head"><h3>Round 4 — "Reach inside the opponent's own controller — the Rodri-shaped decision-maker"</h3><span class="badge confirmed">confirmed, literally</span></div>
     <div class="verdict-body">
@@ -372,7 +320,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     </div>
     <div class="verdict-note">This is the cleanest hit in the archive: the manuscript's central abstract claim — "the Rodri-shaped decision-maker" is the thing worth corrupting — and the match's central concrete act of dark-arts provocation are the same player.</div>
   </div>
-
   <div class="verdict-card">
     <div class="verdict-head"><h3>Round 4 — "Forced false-positive crossing... a card he'd never have picked up on his own numbers"</h3><span class="badge confirmed">confirmed</span></div>
     <div class="verdict-body">
@@ -381,7 +328,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     </div>
     <div class="verdict-note">One honest complication: the manuscript's mechanism assumes an opponent engineering the crossing. Nothing in the reporting shows Spain provoking that specific challenge — it reads more like self-generated recklessness under 90 minutes of accumulated frustration. The <em>shape</em> of the event (false-positive crossing, decisive cost) is exactly as predicted; the <em>cause</em> may be internal rather than adversarial. Worth sitting with rather than smoothing over.</div>
   </div>
-
   <div class="verdict-card">
     <div class="verdict-head"><h3>Round 2/3 — front five as "ballistics, an irreversible, committed drift"</h3><span class="badge confirmed">confirmed</span></div>
     <div class="verdict-body">
@@ -390,7 +336,6 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     </div>
     <div class="verdict-note">Spain's 20 shots to Argentina's 2 (xG 1.94 to 0.20) is the whole "diffusion vs. ballistics" axis rendered as a box score.</div>
   </div>
-
   <div class="verdict-card">
     <div class="verdict-head"><h3>Round 3 — "Argentina diffusing on the rare possessions they get... same reversibility while they have it"</h3><span class="badge complicated">held, until it didn't</span></div>
     <div class="verdict-body">
@@ -400,36 +345,117 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     <div class="verdict-note">The regime-switch didn't fail on its own terms. It failed because the red card changed the state space it was operating in.</div>
   </div>
 
-  <div class="thread-label">Overheard in parallel — WhatsApp, live</div>
+  <div class="thread-label">Closing the loop — tiki-taka as system, per Henry</div>
+  <div class="video-embed">
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/VcYSoVWIfXw?start=120" title="Thierry Henry on Spain, tiki-taka, and what other nations can learn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="video-cap">Thierry Henry, on Spain's footballing identity as tiki-taka — described not as a style but as a system, an algorithm, a philosophy. Cued to the moment the interviewer turns the question toward identity.</p>
+  </div>
+  <p class="dek" style="font-size:15px;">Henry's framing lands on the same word Round 1 opened with. xAI called the 4-1-2-3 an autoencoder before either team kicked off the second half; Henry, independently and from the outside, calls the whole nation's footballing identity a system and an algorithm rather than a style. The manuscript's central bet — that tiki-taka is a computational object with a controller, a threshold, and a regime, not just a possession stat — is the same bet Henry is making when he tells an interviewer other nations should study Spain's philosophy rather than copy its passing. See Tab III for what happens when the roundtable pushes on that word — identity — directly.</p>
+  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the manuscript wrote down the shape before the final whistle; the final whistle wrote down the number. Rodri got shoved. Cucurella got reviewed. Fernández crossed the line on his own. Torres committed. The regime switched exactly once, and it was enough.</p>
+  </div> <!-- /panel-groundtruth -->
 
+  <!-- ================= PANEL III — IDENTITY VS ARCHITECTURE (NEW) ================= -->
+  <div class="panel" id="panel-identity">
+  <p class="dek" style="margin-top:32px;">The ground-truth tab closed on Henry's framing of tiki-taka as a system rather than a style. This tab is the roundtable pressing on the word the interviewer actually used with him: not "style," not "passing" — <strong>identity</strong>. Gemini expands on the exact question asked; GPT answers it from the architecture side of the metaphor the whole archive has been building.</p>
+
+  <div class="thread-label">Round five — the exact question</div>
+  <article class="turn ukubona">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the follow-up</div></div></div><div class="turn-idx">09</div></div>
+    <div class="turn-body prompt"><p>Could you expand on the iframe section, identifying the exact words used to ask Henry about what other nations could learn — specifically, identity? It would be amusing if the only solution turned out to be a dissolution of a nation's identity, to achieve Spain's efficiency. Arsenal sort of did that to beat Man City last season, no?</p></div>
+  </article>
+
+  <article class="turn google">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">the exact question, and Arsenal</div></div></div><div class="turn-idx">10</div></div>
+    <div class="turn-body">
+      <p>The interviewer's question to Henry doesn't ask how to copy Spain's passing. It's framed explicitly around identity and philosophy — Spain described as a "system," and the question turned outward: how could other nations, watching, come away with a system of their own like it. That framing matters more than it looks: it's a question about engineering an identity, not a question about a formation.</p>
+      <div class="copy-note">A word-for-word transcript of Henry's full answer isn't reproduced here out of respect for the source video's copyright — the exchange runs from roughly 2:00 in the clip above, cued for direct viewing.</div>
+      <p>On Arsenal: the read is right, but it's worth being precise about what actually happened under Arteta. Arsenal didn't become more Spanish to beat City — if anything they moved the opposite direction: more physical, more comfortable defending deep, more willing to play ugly, low-possession, low-risk football against the one team that had turned Spain's own principles into a dominant English league system. That's not imitation. That's an adversarial policy responding to a policy that had already saturated the league. Once one team's identity becomes the dominant equilibrium, the profitable move for everyone else stops being "copy it" and becomes "refuse to play its game."</p>
+    </div>
+  </article>
+
+  <article class="turn openai">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">OpenAI</div><div class="voice-role">weights, not architecture</div></div></div><div class="turn-idx">11</div></div>
+    <div class="turn-body">
+      <p>There's a deeper irony in the question than "how do other countries play tiki-taka." The interviewer doesn't ask about a formation. He asks whether an identity itself can be engineered — whether a system built over decades can be handed to a country that didn't build it. Henry's real answer, paraphrased rather than quoted, is that you can't just import the endpoint. Spain's football is the output of decades of coaching, academies, and shared principles — an ecosystem, not a formation.</p>
+      <p>That's where the manuscript's own framing gets sharper. Round two already argued 4-1-2-3 is not the policy. Henry's answer pushes one level further: <strong>Spain is not the 4-1-2-3</strong>. Identity lives in the weights, not the architecture. Two nations can line up in an identical shape. Only one of them has forty years of priors baked into every player's decision. Two neural networks can share identical topology — one is a random initialization, the other is a fully trained model. The architecture was never the interesting part.</p>
+      <h3>The paradox, stated plainly</h3>
+      <p>Asked how to get Spain's identity, the honest answer is close to: you can't. The moment another nation successfully copies it, it stops being Spain's identity — it becomes theirs, arrived at by a different path. Identity, in this frame, is the equilibrium reached by a unique developmental trajectory. You cannot download history; you can only run your own optimization long enough to reach a comparable one.</p>
+      <h3>Where Arsenal actually fits</h3>
+      <p>Arteta inherited Guardiola's ideas directly. But Arsenal's breakthrough season against Manchester City wasn't won by becoming more Spanish — it leaned more physical, more comfortable without the ball, more willing to play an ugly game: closer to compressing variance than diffusing it. Not a rejection of Spain's principles, but the recognition that once one style dominates a league, the optimal counter-move is no longer imitation — it's an adversarial policy built specifically against the dominant one. That's the same shape as the manuscript's own "starved diffusion" idea in Round 4, aimed at a system instead of an individual.</p>
+      <p class="closer">A trained model isn't defined by its graph; it's defined by the optimization path that produced its parameters. A footballing nation isn't defined by its formation; it's defined by the decades of coaching decisions that shaped it. Copying the endpoint is the easy, wrong question. Reproducing the process is the hard, right one — and it's a twenty-year answer to a two-minute question.</p>
+    </div>
+  </article>
+
+  <div class="verdict-card" style="margin-top:40px;">
+    <div class="verdict-head"><h3>Where the two readings agree, and where they don't</h3><span class="badge complicated">two lenses, one axis</span></div>
+    <div class="verdict-body">
+      <div class="vcol"><div class="lab">Google's frame</div><p>Arsenal ran an adversarial policy against a saturated equilibrium — refusing City's game rather than joining it, once imitation stopped paying off.</p></div>
+      <div class="vcol"><div class="lab">OpenAI's frame</div><p>Identity is the weights, not the architecture — you can copy Spain's shape but not its twenty-year optimization path, so "get Spain's system" is close to a category error.</p></div>
+    </div>
+    <div class="verdict-note">Both land on the same axis this whole archive has been circling: architecture is cheap to copy, and it's the thing everyone copies first, because it's the only part that's visible from outside. The expensive part — regime, priors, identity — is exactly the part a formation diagram can never show.</div>
+  </div>
+  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — you can photograph the 4-1-2-3 in an afternoon. You cannot photograph the forty years it took to make it mean something.</p>
+  </div> <!-- /panel-identity -->
+
+  <!-- ================= PANEL IV — OVERHEARD, EXTENDED (NEW) ================= -->
+  <div class="panel" id="panel-parallel">
+  <p class="dek" style="margin-top:32px;">The group chat kept running past the final whistle. Extending Tab II's "Overheard in Parallel" with the fuller thread — the autoencoder diagram sent live, the reactions once the trophy was lifted, and a forwarded clip of the final watched, appropriately, on a bedsheet screen with a goat in frame.</p>
+
+  <div class="thread-label">WhatsApp, live — the autoencoder, sent mid-match</div>
   <div class="wa-block">
-    <h3>Group chat, running alongside the roundtable</h3>
+    <h3>01.07.2017... PK · group chat</h3>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>All 3 presidents are around</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Well 2 presidents and one prime minister</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Wonder if infantino will hand over his duties 🤵</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Thank goodness Mbappe took the last accolade</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">This is bs!!</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Man handed over the trophy and did a YMCA dance 😝 🤵</div></div>
     <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>Would never have heard the last of Messi's absolute greatness</div></div>
     <div class="wa-msg out"><div class="wa-bubble">Careful. Greatness is for individuals. Spain is a network of tiki-taka</div></div>
     <div class="wa-msg out"><div class="wa-bubble">Essentially a neural network, if you know what i mean</div></div>
     <div class="wa-msg out"><div class="wa-bubble">4-1-2-3</div></div>
     <div class="wa-msg out"><div class="wa-bubble">That formation is essentially an autoencoder</div></div>
     <div class="wa-msg out"><div class="wa-bubble">I shall leave it at that</div></div>
-    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>Man handed over the trophy and did a YMCA dance 😝</div></div>
-    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Simeon Munywevu</span>As if not on pitch the whole game</div></div>
-  </div>
-
-  <p class="dek" style="font-size:15px;">The independent confirmation here isn't the roundtable's — it's Mark Munanura's, arrived at cold, without seeing a word of Rounds 1–3: <em>"Spain is a network of tiki-taka... essentially a neural network."</em> The autoencoder framing that took xAI a full paragraph to build in Round 1 got reconstructed in a group chat in three lines, independently, in real time, by someone reacting only to the final score and the shape of the team that produced it. That's the closest thing this archive has to a second observer.</p>
-
-  <div class="thread-label">Closing the loop — tiki-taka as system, per Henry</div>
-
-  <div class="video-embed">
-    <div class="video-frame">
-      <iframe src="https://www.youtube.com/embed/VcYSoVWIfXw" title="Thierry Henry on Spain, tiki-taka, and what other nations can learn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="wa-msg out">
+      <div class="wa-bubble" style="max-width:85%;">
+        <div class="wa-media">
+          <img src="assets/autoencoder-diagram.png" alt="Encoder / Latent Space / Decoder diagram sent to the group chat">
+          <div class="cap">Encoder → Latent Space → Decoder, sent live to the group as the 4-1-2-3 comment</div>
+        </div>
+      </div>
     </div>
-    <p class="video-cap">Thierry Henry, on Spain's footballing identity as tiki-taka — described not as a style but as a system, an algorithm, a philosophy — asked what other nations can take from it.</p>
+    <div class="wa-msg out"><div class="wa-bubble">Rodri is the "1" or the Red node in the 4-1-2-3</div></div>
   </div>
 
-  <p class="dek" style="font-size:15px;">Henry's framing lands on the same word Round 1 opened with. xAI called the 4-1-2-3 an autoencoder before either team kicked off the second half; Henry, independently and from the outside, calls the whole nation's footballing identity a system and an algorithm rather than a style. The manuscript's central bet — that tiki-taka is a computational object with a controller, a threshold, and a regime, not just a possession stat — is the same bet Henry is making when he tells an interviewer other nations should study Spain's philosophy rather than copy its passing.</p>
-
-  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the manuscript wrote down the shape before the final whistle; the final whistle wrote down the number. Rodri got shoved. Cucurella got reviewed. Fernández crossed the line on his own. Torres committed. The regime switched exactly once, and it was enough.</p>
-
-  </div> <!-- /panel-groundtruth -->
+  <div class="thread-label">WhatsApp, live — after the final whistle</div>
+  <div class="wa-block">
+    <h3>Same thread, continued</h3>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>I'm glad this is over 😂</div></div>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>Would never have heard the last of Messi's absolute greatness</div></div>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name alt2">Timothy Gasaatura</span>IKR</div></div>
+    <div class="wa-msg in">
+      <div class="wa-bubble" style="border-left:3px solid var(--green); padding-left:10px;">
+        <span class="wa-name alt">Simeon Munywevu</span>
+        <div style="font-size:12.5px; color:var(--ink-faint); border-left:2px solid var(--rule); padding-left:8px; margin-bottom:6px;"><strong style="color:var(--green);">Mark Munanura</strong><br>Would never have heard the last of Messi's absolute greatness</div>
+        As if not on pitch the whole game
+      </div>
+    </div>
+    <div class="wa-msg in">
+      <div class="wa-bubble" style="max-width:85%;">
+        <span class="wa-name alt">Simeon Munywevu</span>
+        <div style="font-size:11px; color:var(--ink-faint); font-style:italic; margin-bottom:6px;">↪ Forwarded</div>
+        <div class="wa-media">
+          <img src="assets/final-projector-goat.jpg" alt="Fans watching the World Cup Final on an outdoor projector screen, a goat in frame, forwarded to the group">
+          <div class="cap">Forwarded clip — fans watching the final on a bedsheet projector screen, goat included, one in a David Villa shirt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="dek" style="font-size:15px;">Same independent-observer point Tab II made, extended: nobody in this side-channel had seen a word of Rounds 1–4. The autoencoder diagram went out as an image within the same minute as the "essentially a neural network" line — the group chat wasn't just describing the framework, it was illustrating it, live, unprompted, with a stock diagram grabbed off the top of a search.</p>
+  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the roundtable had Rodri, drift, and a threshold. The group chat had a goat, a projector, and the same idea.</p>
+  </div> <!-- /panel-parallel -->
 
 </div>
 
@@ -451,21 +477,17 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   var root = document.body;
   var btn = document.getElementById('themeToggle');
   var currentTheme = 'light';
-
   function apply(theme){
     currentTheme = theme;
     root.setAttribute('data-theme', theme);
     btn.textContent = theme === 'dark' ? '◑' : '◐';
   }
-
   var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   apply(prefersDark ? 'dark' : 'light');
-
   btn.addEventListener('click', function(){
     apply(currentTheme === 'dark' ? 'light' : 'dark');
   });
 })();
-
 (function(){
   var tabs = document.querySelectorAll('.tab-btn');
   tabs.forEach(function(tab){
@@ -480,6 +502,5 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   });
 })();
 </script>
-
 </body>
 </html>
