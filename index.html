@@ -61,10 +61,19 @@ p.dek{ font-size:17px; color:var(--ink-soft); max-width:62ch; margin:0 0 4px; }
 .legend-chip{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing:.03em; padding:5px 11px; border-radius:999px; display:flex; align-items:center; gap:7px; border:1px solid var(--rule); color:var(--ink-soft); }
 .legend-chip .sw{ width:8px; height:8px; border-radius:999px; }
 
-.live{ display:flex; align-items:center; gap:10px; font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-soft); background:var(--red-bg); border:1px solid color-mix(in srgb, var(--red) 30%, transparent); border-radius:999px; padding:7px 14px; margin-top:22px; width:fit-content; }
-.live .pulse{ width:8px; height:8px; border-radius:999px; background:var(--red); animation:pulse 1.6s ease-in-out infinite; }
-@keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.45; transform:scale(.75); } }
-.live strong{ color:var(--red); font-weight:500; }
+.live{ display:flex; align-items:center; gap:10px; font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-soft); background:var(--green-bg); border:1px solid color-mix(in srgb, var(--green) 30%, transparent); border-radius:999px; padding:7px 14px; margin-top:22px; width:fit-content; }
+.live .pulse{ width:8px; height:8px; border-radius:999px; background:var(--green); }
+.live strong{ color:var(--green); font-weight:500; }
+
+/* tabs */
+.tabbar{ display:flex; gap:8px; margin:34px 0 -6px; border-bottom:1px solid var(--rule); }
+.tab-btn{ font-family:'DM Mono', monospace; font-size:12.5px; letter-spacing:.04em; color:var(--ink-faint); background:none; border:none; cursor:pointer; padding:10px 4px 14px; margin-right:18px; position:relative; transition:color .2s ease; }
+.tab-btn:hover{ color:var(--ink-soft); }
+.tab-btn.active{ color:var(--ink); }
+.tab-btn.active::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--violet); border-radius:2px; }
+.tab-btn .n{ display:inline-block; opacity:.6; margin-right:6px; }
+.panel{ display:none; }
+.panel.active{ display:block; }
 
 .sources{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:24px 26px; margin:36px 0; box-shadow:var(--shadow); }
 .sources h2{ font-family:'DM Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; font-weight:500; }
@@ -107,6 +116,43 @@ table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing
 
 .thread-label{ display:flex; align-items:center; gap:14px; margin:52px 0 8px; font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); }
 .thread-label::before, .thread-label::after{ content:""; height:1px; background:var(--rule); flex:1; }
+
+/* ground-truth tab */
+.scorebox{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:26px; margin:30px 0; box-shadow:var(--shadow); text-align:center; }
+.scorebox .comp{ font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:12px; }
+.scoreline{ font-family:'DM Serif Display', serif; font-size:clamp(28px,5vw,40px); display:flex; align-items:center; justify-content:center; gap:18px; }
+.scoreline .side{ font-size:16px; font-family:'DM Sans',sans-serif; color:var(--ink-soft); }
+.scoreline .num{ color:var(--ink); }
+.scorebox .sub{ font-family:'DM Mono', monospace; font-size:12.5px; color:var(--ink-faint); margin-top:10px; }
+.keymoments{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px; }
+.km{ font-family:'DM Mono', monospace; font-size:11.5px; color:var(--ink-soft); border:1px solid var(--rule); border-radius:999px; padding:5px 12px; }
+
+.verdict-card{ margin:22px 0; border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+.verdict-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; border-bottom:1px solid var(--rule); background:var(--surface-2); }
+.verdict-head h3{ margin:0; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; }
+.badge{ font-family:'DM Mono', monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap; }
+.badge.confirmed{ color:var(--green); background:var(--green-bg); }
+.badge.complicated{ color:var(--amber); background:var(--amber-bg); }
+.verdict-body{ padding:18px 20px 20px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width:600px){ .verdict-body{ grid-template-columns:1fr; } }
+.vcol .lab{ font-family:'DM Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:6px; }
+.vcol p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+.vcol.predicted p{ font-style:italic; }
+.verdict-note{ padding:0 20px 20px; font-size:14px; color:var(--ink-soft); border-top:1px dashed var(--rule); margin-top:2px; padding-top:14px; }
+
+.wa-block{ background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); padding:20px 22px; margin:22px 0; box-shadow:var(--shadow); }
+.wa-block h3{ font-family:'DM Mono', monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+.wa-msg{ display:flex; margin-bottom:10px; }
+.wa-msg.out{ justify-content:flex-end; }
+.wa-bubble{ max-width:75%; border-radius:14px; padding:9px 13px; font-size:14px; }
+.wa-msg.in .wa-bubble{ background:var(--surface-2); border:1px solid var(--rule); }
+.wa-msg.out .wa-bubble{ background:var(--green-bg); border:1px solid color-mix(in srgb, var(--green) 25%, transparent); }
+.wa-name{ font-family:'DM Mono', monospace; font-size:10.5px; color:var(--green); display:block; margin-bottom:2px; }
+
+.video-embed{ margin:26px 0; }
+.video-frame{ position:relative; width:100%; padding-top:56.25%; border-radius:var(--radius); overflow:hidden; border:1px solid var(--rule); box-shadow:var(--shadow); background:var(--mono-bg); }
+.video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-cap{ font-family:'DM Mono', monospace; font-size:12px; color:var(--ink-faint); margin-top:10px; }
 
 footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
 .footer-mark{ width:30px; height:30px; opacity:.85; }
@@ -151,8 +197,16 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
       <span class="legend-chip"><span class="sw" style="background:var(--violet)"></span>Anthropic</span>
       <span class="legend-chip"><span class="sw" style="background:var(--graphite)"></span>Ukubona</span>
     </div>
-    <div class="live"><span class="pulse"></span> World Cup Final, live — <strong>Spain 0–0 Argentina</strong> · 64% / 36% possession · 3 shots / 0 shots</div>
+    <div class="live"><span class="pulse"></span> Full time, after extra time — <strong>Spain 1–0 Argentina</strong> · Torres 106' · Fernández sent off, 90+3'</div>
+
+    <div class="tabbar" role="tablist">
+      <button class="tab-btn active" id="tab-thread" data-panel="panel-thread" role="tab" aria-selected="true"><span class="n">I.</span>The Roundtable</button>
+      <button class="tab-btn" id="tab-groundtruth" data-panel="panel-groundtruth" role="tab" aria-selected="false"><span class="n">II.</span>Full Time — Ground Truth</button>
+    </div>
   </section>
+
+  <!-- ================= PANEL I — ORIGINAL ARCHIVE (unchanged, verbatim) ================= -->
+  <div class="panel active" id="panel-thread">
 
   <section class="sources">
     <h2>Sources</h2>
@@ -163,9 +217,9 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
       <li><span>IV.</span> Live match feed — FIFA World Cup Final, Spain vs. Argentina, 19 July 2026</li>
     </ol>
     <div class="stat-row">
-      <div class="stat"><div class="num">64% / 36%</div><div class="lab">possession, ESP / ARG</div></div>
-      <div class="stat"><div class="num">3 / 0</div><div class="lab">shots, ESP / ARG</div></div>
-      <div class="stat"><div class="num">1</div><div class="lab">yellow card, ARG, 41'</div></div>
+      <div class="stat"><div class="num">64% / 36%</div><div class="lab">possession, ESP / ARG (at time of writing)</div></div>
+      <div class="stat"><div class="num">3 / 0</div><div class="lab">shots, ESP / ARG (at time of writing)</div></div>
+      <div class="stat"><div class="num">1</div><div class="lab">yellow card, ARG, 41' (at time of writing)</div></div>
     </div>
   </section>
 
@@ -279,6 +333,104 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
     </div>
   </article>
 
+  </div> <!-- /panel-thread -->
+
+  <!-- ================= PANEL II — GROUND TRUTH ================= -->
+  <div class="panel" id="panel-groundtruth">
+
+  <p class="dek" style="margin-top:32px;">Round three's closer promised a number nobody had written down yet — "nobody in this thread has written down the number that tells him to." Round four bet, in advance, on the shape the dark arts would take. The match is over. Here is what the manuscript predicted, graded against what the pitch actually did, plus the parallel conversation running the whole time on a phone screen a continent away.</p>
+
+  <div class="scorebox">
+    <div class="comp">FIFA World Cup Final · Full Time (AET) · New York/New Jersey Stadium · 19 July 2026</div>
+    <div class="scoreline"><span class="side">Spain</span><span class="num">1</span><span style="color:var(--ink-faint);">–</span><span class="num">0</span><span class="side">Argentina</span></div>
+    <div class="sub">Ferran Torres 106' · Enzo Fernández sent off 90+3' (2nd yellow) · Emiliano Martínez, 10 saves · Spain 1.94 xG (20 shots) — Argentina 0.20 xG (2 shots)</div>
+    <div class="keymoments">
+      <span class="km">Spain's 2nd World Cup title, 16 years after 2010</span>
+      <span class="km">Messi's likely final World Cup match</span>
+      <span class="km">Paredes shoves Rodri, 2nd half, yellow</span>
+      <span class="km">"Vinícius Law" VAR check on Cucurella–Messi exchange</span>
+      <span class="km">Post-final scuffle, Paredes cautioned by Scaloni</span>
+    </div>
+  </div>
+
+  <div class="thread-label">Grading the manuscript</div>
+
+  <div class="verdict-card">
+    <div class="verdict-head"><h3>Round 3 — "Cucurella... turns a back four into a back three with two pivots"</h3><span class="badge confirmed">confirmed, literally</span></div>
+    <div class="verdict-body">
+      <div class="vcol predicted"><div class="lab">Predicted</div><p>The topology itself gets rewired per possession — not a fixed graph, a routing network choosing which subgraph is live.</p></div>
+      <div class="vcol"><div class="lab">What happened</div><p>Cucurella was at the centre of the match's sharpest dark-arts moment: a VAR review under the newly enforced "Vinícius Law," checking whether he and Messi had covered their mouths while exchanging words. No card followed — the exchange stayed just under the referee's detection threshold, exactly the deniable band Round 4 described before it existed as a named rule.</p></div>
+    </div>
+    <div class="verdict-note">The manuscript named Cucurella as the player who reshapes the graph. The match made him the player at the centre of the one incident built to test whether the "dark arts" definition in Round 4 was actually operational rather than just a nice turn of phrase.</div>
+  </div>
+
+  <div class="verdict-card">
+    <div class="verdict-head"><h3>Round 4 — "Reach inside the opponent's own controller — the Rodri-shaped decision-maker"</h3><span class="badge confirmed">confirmed, literally</span></div>
+    <div class="verdict-body">
+      <div class="vcol predicted"><div class="lab">Predicted</div><p>The dark arts don't target the ball. They target the man who decides whether the team stays diffusive or goes ballistic.</p></div>
+      <div class="vcol"><div class="lab">What happened</div><p>In the second half, Leandro Paredes shoved Rodri in the back — unprovoked, away from the ball, while Spain were simply circulating possession at midfield. It drew a yellow card. Of every player on the pitch to target, Argentina targeted the exact one this whole roundtable had spent three rounds arguing was the pivot.</p></div>
+    </div>
+    <div class="verdict-note">This is the cleanest hit in the archive: the manuscript's central abstract claim — "the Rodri-shaped decision-maker" is the thing worth corrupting — and the match's central concrete act of dark-arts provocation are the same player.</div>
+  </div>
+
+  <div class="verdict-card">
+    <div class="verdict-head"><h3>Round 4 — "Forced false-positive crossing... a card he'd never have picked up on his own numbers"</h3><span class="badge confirmed">confirmed</span></div>
+    <div class="verdict-body">
+      <div class="vcol predicted"><div class="lab">Predicted</div><p>Needle a player until frustration, not judgment, produces the crossing — younger, more combustible players are the obvious target.</p></div>
+      <div class="vcol"><div class="lab">What happened</div><p>Enzo Fernández picked up a first yellow in the 82nd minute for dissent, then a second in the 93rd for a reckless, needless collision with Pau Cubarsí — sent off, reducing Argentina to ten men for the entirety of extra time. Spain scored the winner nine minutes later.</p></div>
+    </div>
+    <div class="verdict-note">One honest complication: the manuscript's mechanism assumes an opponent engineering the crossing. Nothing in the reporting shows Spain provoking that specific challenge — it reads more like self-generated recklessness under 90 minutes of accumulated frustration. The <em>shape</em> of the event (false-positive crossing, decisive cost) is exactly as predicted; the <em>cause</em> may be internal rather than adversarial. Worth sitting with rather than smoothing over.</div>
+  </div>
+
+  <div class="verdict-card">
+    <div class="verdict-head"><h3>Round 2/3 — front five as "ballistics, an irreversible, committed drift"</h3><span class="badge confirmed">confirmed</span></div>
+    <div class="verdict-body">
+      <div class="vcol predicted"><div class="lab">Predicted</div><p>Penetration is a committed, one-way act — the opposite of the back four's reversible diffusion.</p></div>
+      <div class="vcol"><div class="lab">What happened</div><p>Ferran Torres, on as a substitute, converted Nico Williams' knockdown in the 106th minute — the single irreversible act that ended 105 minutes of a scoreless, mutually reversible match.</p></div>
+    </div>
+    <div class="verdict-note">Spain's 20 shots to Argentina's 2 (xG 1.94 to 0.20) is the whole "diffusion vs. ballistics" axis rendered as a box score.</div>
+  </div>
+
+  <div class="verdict-card">
+    <div class="verdict-head"><h3>Round 3 — "Argentina diffusing on the rare possessions they get... same reversibility while they have it"</h3><span class="badge complicated">held, until it didn't</span></div>
+    <div class="verdict-body">
+      <div class="vcol predicted"><div class="lab">Predicted</div><p>Less time on the ball is compatible with tiki-taka's reversibility definition, as long as what little possession Argentina had stayed patient rather than desperate.</p></div>
+      <div class="vcol"><div class="lab">What happened</div><p>Argentina held Spain scoreless for 105 minutes on almost no attacking threat — the definition held for the entire match. It broke only once the numbers changed underneath it: ten men, thirty minutes, a resolute defence finally cracked in extra time.</p></div>
+    </div>
+    <div class="verdict-note">The regime-switch didn't fail on its own terms. It failed because the red card changed the state space it was operating in.</div>
+  </div>
+
+  <div class="thread-label">Overheard in parallel — WhatsApp, live</div>
+
+  <div class="wa-block">
+    <h3>Group chat, running alongside the roundtable</h3>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>Would never have heard the last of Messi's absolute greatness</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Careful. Greatness is for individuals. Spain is a network of tiki-taka</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">Essentially a neural network, if you know what i mean</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">4-1-2-3</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">That formation is essentially an autoencoder</div></div>
+    <div class="wa-msg out"><div class="wa-bubble">I shall leave it at that</div></div>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Mark Munanura</span>Man handed over the trophy and did a YMCA dance 😝</div></div>
+    <div class="wa-msg in"><div class="wa-bubble"><span class="wa-name">Simeon Munywevu</span>As if not on pitch the whole game</div></div>
+  </div>
+
+  <p class="dek" style="font-size:15px;">The independent confirmation here isn't the roundtable's — it's Mark Munanura's, arrived at cold, without seeing a word of Rounds 1–3: <em>"Spain is a network of tiki-taka... essentially a neural network."</em> The autoencoder framing that took xAI a full paragraph to build in Round 1 got reconstructed in a group chat in three lines, independently, in real time, by someone reacting only to the final score and the shape of the team that produced it. That's the closest thing this archive has to a second observer.</p>
+
+  <div class="thread-label">Closing the loop — tiki-taka as system, per Henry</div>
+
+  <div class="video-embed">
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/VcYSoVWIfXw" title="Thierry Henry on Spain, tiki-taka, and what other nations can learn" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="video-cap">Thierry Henry, on Spain's footballing identity as tiki-taka — described not as a style but as a system, an algorithm, a philosophy — asked what other nations can take from it.</p>
+  </div>
+
+  <p class="dek" style="font-size:15px;">Henry's framing lands on the same word Round 1 opened with. xAI called the 4-1-2-3 an autoencoder before either team kicked off the second half; Henry, independently and from the outside, calls the whole nation's footballing identity a system and an algorithm rather than a style. The manuscript's central bet — that tiki-taka is a computational object with a controller, a threshold, and a regime, not just a possession stat — is the same bet Henry is making when he tells an interviewer other nations should study Spain's philosophy rather than copy its passing.</p>
+
+  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the manuscript wrote down the shape before the final whistle; the final whistle wrote down the number. Rodri got shoved. Cucurella got reviewed. Fernández crossed the line on his own. Torres committed. The regime switched exactly once, and it was enough.</p>
+
+  </div> <!-- /panel-groundtruth -->
+
 </div>
 
 <footer>
@@ -311,6 +463,20 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
 
   btn.addEventListener('click', function(){
     apply(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+})();
+
+(function(){
+  var tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
   });
 })();
 </script>
