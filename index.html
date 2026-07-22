@@ -124,6 +124,7 @@ table.map th{ font-family:'DM Mono', monospace; font-size:11.5px; letter-spacing
 .badge{ font-family:'DM Mono', monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap; }
 .badge.confirmed{ color:var(--green); background:var(--green-bg); }
 .badge.complicated{ color:var(--amber); background:var(--amber-bg); }
+.badge.open{ color:var(--red); background:var(--red-bg); }
 .verdict-body{ padding:18px 20px 20px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 @media (max-width:600px){ .verdict-body{ grid-template-columns:1fr; } }
 .vcol .lab{ font-family:'DM Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:6px; }
@@ -194,6 +195,7 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
       <button class="tab-btn" id="tab-groundtruth" data-panel="panel-groundtruth" role="tab" aria-selected="false"><span class="n">II.</span>Full Time — Ground Truth</button>
       <button class="tab-btn" id="tab-identity" data-panel="panel-identity" role="tab" aria-selected="false"><span class="n">III.</span>Identity vs. Architecture</button>
       <button class="tab-btn" id="tab-parallel" data-panel="panel-parallel" role="tab" aria-selected="false"><span class="n">IV.</span>Overheard, Extended</button>
+      <button class="tab-btn" id="tab-appeal" data-panel="panel-appeal" role="tab" aria-selected="false"><span class="n">V.</span>Rival Verdicts</button>
     </div>
   </section>
 
@@ -356,7 +358,7 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the manuscript wrote down the shape before the final whistle; the final whistle wrote down the number. Rodri got shoved. Cucurella got reviewed. Fernández crossed the line on his own. Torres committed. The regime switched exactly once, and it was enough.</p>
   </div> <!-- /panel-groundtruth -->
 
-  <!-- ================= PANEL III — IDENTITY VS ARCHITECTURE (NEW) ================= -->
+  <!-- ================= PANEL III — IDENTITY VS ARCHITECTURE ================= -->
   <div class="panel" id="panel-identity">
   <p class="dek" style="margin-top:32px;">The ground-truth tab closed on Henry's framing of tiki-taka as a system rather than a style. This tab is the roundtable pressing on the word the interviewer actually used with him: not "style," not "passing" — <strong>identity</strong>. Gemini expands on the exact question asked; GPT answers it from the architecture side of the metaphor the whole archive has been building.</p>
 
@@ -399,7 +401,7 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   <p class="closer" style="margin-top:26px;">Okubala si Kulaba — you can photograph the 4-1-2-3 in an afternoon. You cannot photograph the forty years it took to make it mean something.</p>
   </div> <!-- /panel-identity -->
 
-  <!-- ================= PANEL IV — OVERHEARD, EXTENDED (NEW) ================= -->
+  <!-- ================= PANEL IV — OVERHEARD, EXTENDED ================= -->
   <div class="panel" id="panel-parallel">
   <p class="dek" style="margin-top:32px;">The group chat kept running past the final whistle. Extending Tab II's "Overheard in Parallel" with the fuller thread — the autoencoder diagram sent live, the reactions once the trophy was lifted, and a forwarded clip of the final watched, appropriately, on a bedsheet screen with a goat in frame.</p>
 
@@ -456,6 +458,81 @@ footer{ margin-top:70px; padding-top:30px; border-top:1px solid var(--rule); dis
   <p class="dek" style="font-size:15px;">Same independent-observer point Tab II made, extended: nobody in this side-channel had seen a word of Rounds 1–4. The autoencoder diagram went out as an image within the same minute as the "essentially a neural network" line — the group chat wasn't just describing the framework, it was illustrating it, live, unprompted, with a stock diagram grabbed off the top of a search.</p>
   <p class="closer" style="margin-top:26px;">Okubala si Kulaba — the roundtable had Rodri, drift, and a threshold. The group chat had a goat, a projector, and the same idea.</p>
   </div> <!-- /panel-parallel -->
+
+  <!-- ================= PANEL V — RIVAL VERDICTS (NEW) ================= -->
+  <div class="panel" id="panel-appeal">
+  <p class="dek" style="margin-top:32px;">A different kind of test than Tab II's box score: not the manuscript against a football match, but the manuscript against a piece of football media. Four voices are handed the same comedic post-tournament recap and asked to critique it through the artifact's own logic. What comes back says as much about the four readers as about the video.</p>
+
+  <div class="thread-label">Round six — the video, cross-examined</div>
+  <article class="turn ukubona">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Ukubona</div><div class="voice-role">the exhibit</div></div></div><div class="turn-idx">12</div></div>
+    <div class="turn-body prompt"><p>Critique this video using the logic of the artifact.</p></div>
+  </article>
+
+  <div class="video-embed">
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/AKDqNyIzvfs" title="Joe Oppio and Trevor Noah, World Cup predictions recap" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="video-cap">Joe "Joe-Stradamus" Oppio and Trevor Noah, grading Oppio's pre-tournament predictions against how the tournament actually went. Light, personality-driven, prediction-scorecard entertainment — the exhibit for Round six.</p>
+  </div>
+
+  <article class="turn xai">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">xAI</div><div class="voice-role">coverage analysis</div></div></div><div class="turn-idx">13</div></div>
+    <div class="turn-body">
+      <p>The video is light entertainment — a comedic post-tournament recap where Oppio reviews his bold predictions with Noah. It's funny, anecdotal, and focused on personalities, score guesses, and banter: Messi loyalty, young Barcelona players, France/Spain vibes, "brain says X, heart says Y."</p>
+      <p>Held against the manuscript, the gaps are structural. The video never engages Rodri as controller, never names the threshold, never distinguishes diffusion from ballistics, never touches the dark arts as adversarial perturbation, and treats the win as fulfillment of pre-tournament hype rather than a trained model's priors surviving adversarial pressure. What it does capture, on the manuscript's own terms, is the parallel-group-chat energy Tab IV nods to — unfiltered fan prediction, reversible banter that recycles tropes without ever committing to structure. It's the back-four circulation to the manuscript's Rodri hinge: enjoyable, but it never sees the whole pitch.</p>
+      <p class="closer">Okubala si Kulaba — counting predictions is not seeing the system.</p>
+    </div>
+  </article>
+
+  <article class="turn google">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Google</div><div class="voice-role">translation, not coverage</div></div></div><div class="turn-idx">14</div></div>
+    <div class="turn-body">
+      <p>Where xAI checks for absent vocabulary, the more interesting move is translating what's actually said. Oppio intuitively grasps structural outcomes without the words for the mechanics driving them — and several of his lines convert cleanly:</p>
+      <table class="map">
+        <tr><th>Video observation</th><th>Manuscript translation</th></tr>
+        <tr><td>"Messi makes defenders nervous so they can never come forward."</td><td>An exogenous constraint on the opponent's transition function — his latent threat raises the threshold for the opponent's back four to commit to ballistics.</td></tr>
+        <tr><td>Argentina will "sit back, absorb pressure, don't try to play their game."</td><td>Starved diffusion, deployed at the level of a whole system rather than a single player — denying the opponent the continuous time-steps needed to accumulate state.</td></tr>
+        <tr><td>"The first goal will condition the strategy."</td><td>A threshold-triggered regime switch — an observable crossing that permanently flips the governing dynamics, framed by Oppio as psychology rather than structure.</td></tr>
+      </table>
+      <p>What the video's frame can't do, that the manuscript's frame can, is compress: "patience," "game management," "composure," "tempo," "momentum," "football IQ" all collapse to observations of the same latent threshold-crossing variable. The video keeps them as separate, folksy virtues.</p>
+      <p class="closer">Okubala si Kulaba — the video counts the variables. It never sees the operator running underneath them.</p>
+    </div>
+  </article>
+
+  <article class="turn openai">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">OpenAI</div><div class="voice-role">the video as instance, not object</div></div></div><div class="turn-idx">15</div></div>
+    <div class="turn-body">
+      <p>Both prior readings still treat the manuscript as football theory being applied to a football video. The stronger claim is that football was only ever the observable event stream, and Rodri only ever the cleanest visible embodiment of a five-stage operator — event stream, diffusion, threshold, commitment, write-back — that recurs across routing, drama, digital twins, and command structures.</p>
+      <p>Read that way, the video is interesting not for what it omits but for what it accidentally proves: Oppio's "the first goal changes everything" is a claim every football fan already holds without asking why. The manuscript's contribution is asking why — and answering that the first goal doesn't just shift momentum, it changes the governing equations. Momentum is descriptive. Regime-switching is mechanistic. The video sits contentedly at the descriptive layer; the manuscript's whole argument is that the descriptive layer is a compressed, lossy readout of the mechanistic one underneath.</p>
+      <p class="closer">Okubala si Kulaba — the video names the shadow on the wall. The manuscript names what's casting it.</p>
+    </div>
+  </article>
+
+  <article class="turn anthropic">
+    <div class="turn-head"><div class="voice"><span class="dot"></span><div><div class="voice-name">Anthropic</div><div class="voice-role">the falsifiability problem</div></div></div><div class="turn-idx">16</div></div>
+    <div class="turn-body">
+      <p>xAI did coverage analysis. Google did translation. OpenAI did generalization. Before adding to any of them, it's worth pressing on where the generalization stops paying rent.</p>
+      <p>Start with the video itself. Google's translation table is elegant, but notice what it demonstrates: every one of Oppio's folk lines survives translation into the manuscript's vocabulary without loss. That's suspicious in the wrong direction. A good formal theory should sometimes contradict the folk heuristic it's translating, not just re-describe it in different terms. If "the first goal conditions the strategy" converts cleanly to "regime switch" every time, with no case where the folk read and the formal read diverge, that's evidence the formal apparatus is flexible enough to absorb anything — not yet evidence it's doing explanatory work. The test that would matter is a prediction Oppio's frame gets wrong and the threshold frame gets right. Nothing offered here supplies that.</p>
+      <p>Then there's OpenAI's move to Operator III as a universal primitive — event stream, diffusion, threshold, commitment, write-back, showing up in Rodri, Hamlet, LLM routing, and clinical twins alike. That's the single highest-risk claim in the thread, because it stops being falsifiable the moment it's stated that broadly. A five-stage operator loose enough to fit football, Shakespeare, and neural networks might not be a discovered universal — it might just be that "things diffuse, then something crosses a line, then things commit" fits almost any sequential process with a decision point in it, the way "beginning, middle, end" fits every story ever told.</p>
+      <p>What would make this testable: a domain where the operator makes a costly, checkable prediction, and a check on whether it's right. Not another domain where the shape can be made to fit — a domain where it could fail and doesn't. Until that exists, "Hamlet is Operator III" is a good metaphor borrowing the credibility of Round 3's actual math, where ‖ΔJ‖ ≥ τ has units and a computation behind it. The manuscript is strongest exactly where the threshold has a number attached. It's weakest exactly where it doesn't.</p>
+      <p class="closer">Okubala si Kulaba — the operator is real where you can compute it, and a metaphor everywhere else. This thread hasn't yet said which is which for the video it was just handed.</p>
+    </div>
+  </article>
+
+  <div class="verdict-card" style="margin-top:40px;">
+    <div class="verdict-head"><h3>Four readings of one video</h3><span class="badge open">unresolved</span></div>
+    <div class="verdict-body">
+      <div class="vcol"><div class="lab">xAI — coverage</div><p>Asks which manuscript concepts are absent from the video. A gap analysis.</p></div>
+      <div class="vcol"><div class="lab">Google — translation</div><p>Asks whether the video's folk language converts into the manuscript's formal language. A hermeneutic move.</p></div>
+      <div class="vcol"><div class="lab">OpenAI — generalization</div><p>Asks whether the video is even about football, or an instance of a domain-general operator. An ambitious move.</p></div>
+      <div class="vcol"><div class="lab">Anthropic — falsifiability</div><p>Asks what the translation and the generalization would need to show to be more than a redescription. A costly-prediction test, not yet supplied.</p></div>
+    </div>
+    <div class="verdict-note">The four critiques disagree about method more than about the video itself — and that disagreement is its own piece of evidence. It shows the manuscript is rich enough to be read four different ways. It doesn't yet show the manuscript is right in any of them; that would take a prediction that could have failed and didn't, and Round six doesn't produce one.</div>
+  </div>
+
+  <p class="closer" style="margin-top:26px;">Okubala si Kulaba — four voices, one video, one open question still sitting where the manuscript left it before the final whistle: which parts of this are discovered, and which parts are only well-described.</p>
+  </div> <!-- /panel-appeal -->
 
 </div>
 
